@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.sonyei888.cursofirebaselite" />
+                  <option name="mobileSdkAppId" value="1:73622526823:android:a548f4a54cf7bb49a1edc2" />
+                  <option name="projectId" value="fir-lite-aaa6e" />
+                  <option name="projectNumber" value="73622526823" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
