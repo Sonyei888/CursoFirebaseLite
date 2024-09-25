@@ -43,6 +43,8 @@ class MainActivity : ComponentActivity() {
         val currentUser = auth.currentUser
         if(currentUser!=null){
             //para despues (Posiblemente nunca)
+
+            auth.signOut()
         }
     }
 }

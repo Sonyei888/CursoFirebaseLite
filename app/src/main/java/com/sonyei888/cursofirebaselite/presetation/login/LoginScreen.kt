@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -33,9 +34,10 @@ import com.sonyei888.cursofirebaselite.ui.theme.Black
 import com.sonyei888.cursofirebaselite.ui.theme.SelectedField
 import com.sonyei888.cursofirebaselite.ui.theme.UnselectedField
 import com.google.firebase.auth.FirebaseAuth
+import com.sonyei888.cursofirebaselite.ui.theme.Green
 
 @Composable
-fun LoginScreen(auth: FirebaseAuth, navigateToHome:() -> Unit) {
+fun LoginScreen(auth: FirebaseAuth, navigateToHome: () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -47,7 +49,7 @@ fun LoginScreen(auth: FirebaseAuth, navigateToHome:() -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Row(){
+        Row() {
             Icon(
                 painter = painterResource(id = R.drawable.ic_back_24),
                 contentDescription = "",
@@ -81,16 +83,24 @@ fun LoginScreen(auth: FirebaseAuth, navigateToHome:() -> Unit) {
         )
         Spacer(Modifier.height(48.dp))
         Button(onClick = {
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener{ task ->
-                if(task.isSuccessful){
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
                     navigateToHome()
-                    Log.i("aris", "LOGIN OK")
-                }else{
+                    Log.i("sonyei888", "LOGIN OK")
+                } else {
                     //Error
-                    Log.i("aris", "LOGIN KO")
+                    Log.i("sonyei888", "LOGIN KO")
                 }
+
             }
-        }) {
+
+        },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp)
+                .padding(horizontal = 32.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Green)
+        ) {
             Text(text = "Login")
         }
     }
