@@ -9,14 +9,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.sonyei888.cursofirebaselite.ui.theme.CursoFirebaseLiteTheme
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var navHostController: NavHostController
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
         setContent {
 
             navHostController = rememberNavController()
@@ -27,9 +32,17 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavigatioWrapper(navHostController)
+                    NavigatioWrapper(navHostController, auth)
                 }
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if(currentUser!=null){
+            //para despues (Posiblemente nunca)
         }
     }
 }
