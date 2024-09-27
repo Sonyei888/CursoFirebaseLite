@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.firebase.config)
 
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil)
 
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.24.3-alpha")
 

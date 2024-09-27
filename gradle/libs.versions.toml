@@ -38,6 +38,7 @@ firebase-firestore = {module= "com.google.firebase:firebase-firestore"}
 firebase-realtime = {module= "com.google.firebase:firebase-database-ktx"}
 firebase-config = {module = "com.google.firebase:firebase-config-ktx"}
 
+coil = {module = "io.coil-kt:coil-compose", version.ref = "coil"}
 androidx-navigation-compose = {module = "androidx.navigation:navigation-compose" , version.ref = "navigationCompose"}
 
 [plugins]
