@@ -96,7 +96,7 @@ fun HomeScreen(viewmodel: HomeViewmodel = HomeViewmodel()) {
             .background(Black)
     ) {
         Text(
-            "Popular artist",
+            "Artista Popular",
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = 30.sp,
@@ -174,7 +174,7 @@ fun ArtistItemPreview() {
         "Pepe",
         "El mejor",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyXeKDN29AmZgZPLS7n0Bepe8QmVappBwZCeA3XWEbWNdiDFB",
-        emptyList()
+        //emptyList()
     )
     ArtistItem(artist = artist) {}
 }

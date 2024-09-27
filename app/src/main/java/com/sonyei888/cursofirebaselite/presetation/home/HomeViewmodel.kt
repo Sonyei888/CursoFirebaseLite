@@ -35,7 +35,7 @@ class HomeViewmodel : ViewModel() {
     val player: StateFlow<Player?> = _player
 
     private val _blockVersion = MutableStateFlow<Boolean>(false)
-    val blockVersion:StateFlow<Boolean> = _blockVersion
+    val blockVersion: StateFlow<Boolean> = _blockVersion
 
     init {
 
@@ -49,7 +49,7 @@ class HomeViewmodel : ViewModel() {
 
     private fun checkUserVersion() {
         viewModelScope.launch {
-            val result = withContext(Dispatchers.IO){
+            val result = withContext(Dispatchers.IO) {
                 canAccessToApp()
             }
             _blockVersion.value = !result
@@ -92,7 +92,7 @@ class HomeViewmodel : ViewModel() {
                 snapshot.toObject(Artist::class.java)
             }
         } catch (e: Exception) {
-            Log.i("aris", e.toString())
+            Log.i("sonyei888", e.toString())
             emptyList()
         }
     }
@@ -104,7 +104,7 @@ class HomeViewmodel : ViewModel() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.i("aris log", "Error: ${error.message}")
+                Log.i("sonyei888 log", "Error: ${error.message}")
                 close(error.toException())
             }
         }
