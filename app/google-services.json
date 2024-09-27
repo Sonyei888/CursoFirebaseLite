@@ -1,6 +1,7 @@
- {
+{
   "project_info": {
     "project_number": "73622526823",
+    "firebase_url": "https://fir-lite-aaa6e-default-rtdb.firebaseio.com",
     "project_id": "fir-lite-aaa6e",
     "storage_bucket": "fir-lite-aaa6e.appspot.com"
   },
