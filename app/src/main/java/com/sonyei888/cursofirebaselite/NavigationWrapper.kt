@@ -17,7 +17,7 @@ fun NavigatioWrapper(
     auth: FirebaseAuth,
     db: FirebaseFirestore
 ) {
-    NavHost(navController = navHostController, startDestination = "home") {
+    NavHost(navController = navHostController, startDestination = "initial") {
         composable("initial") {
             InitialScreen(
                 navigateToLogin = { navHostController.navigate("login") },

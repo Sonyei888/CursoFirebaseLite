@@ -17,18 +17,21 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sonyei888.cursofirebaselite.R
 import com.sonyei888.cursofirebaselite.ui.theme.Black
 import com.sonyei888.cursofirebaselite.ui.theme.SelectedField
@@ -40,6 +43,16 @@ import com.sonyei888.cursofirebaselite.ui.theme.Green
 fun LoginScreen(auth: FirebaseAuth, navigateToHome: () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = false
+
+    LaunchedEffect(Unit) {
+        systemUiController.setSystemBarsColor(
+            color = Color.Black,
+            darkIcons = useDarkIcons
+        )
+    }
 
     Column(
         modifier = Modifier

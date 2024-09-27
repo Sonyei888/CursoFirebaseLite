@@ -22,6 +22,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import coil.compose.AsyncImage
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sonyei888.cursofirebaselite.R
 import com.sonyei888.cursofirebaselite.presetation.model.Artist
 import com.sonyei888.cursofirebaselite.presetation.model.Player
@@ -51,6 +53,16 @@ fun HomeScreen(viewmodel: HomeViewmodel = HomeViewmodel()) {
     val artists: State<List<Artist>> = viewmodel.artist.collectAsState()
     val player by viewmodel.player.collectAsState()
     val blockVersion by viewmodel.blockVersion.collectAsState()
+
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = false
+
+    LaunchedEffect(Unit) {
+        systemUiController.setSystemBarsColor(
+            color = Color.Black,
+            darkIcons = useDarkIcons
+        )
+    }
 
     if (blockVersion) {
         val context = LocalContext.current
@@ -126,9 +138,9 @@ fun PlayerComponent(player: Player, onPlaySelected: () -> Unit, onCancelSelected
 
     Row(
         Modifier
-            .height(50.dp)
+            .height(60.dp)
             .fillMaxWidth()
-            .background(Purple40),
+            .background(Color.Gray),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
